@@ -18,6 +18,12 @@ pub mod to_tuple_element {
             }
             assert_eq!(tuple.0, 10);
             assert_eq!(tuple.1, 2);
+            {
+                let elem = mutable_reference_to_tuple_element(&mut tuple, true);
+                *elem = 20;
+            }
+            assert_eq!(tuple.0, 10);
+            assert_eq!(tuple.1, 20);
         }
     }
 }
